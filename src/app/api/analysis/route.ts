@@ -24,7 +24,10 @@ async function makeAIRequest(together: Together, prompt: string, retryCount = 0)
       response_format: { "type": "json_object" }
     });
 
-    const content = response.choices[0].message.content;
+    const content = response.choices?.[0]?.message?.content;
+    if (!content) {
+      throw new Error('Response content is undefined');
+    }
     try {
       return JSON.parse(content);
     } catch {
@@ -54,7 +57,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const together = new Together(apiKey);
+    const together = new Together({ apiKey });
     const body = await request.json();
     const { symbol, stockData } = body;
 

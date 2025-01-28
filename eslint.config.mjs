@@ -14,7 +14,8 @@ const eslintConfig = /** @type {Linter.Config} */ ({
   // ...compat.extends("next/core-web-vitals", "next/typescript"),
   extends: [
     'next/core-web-vitals',
-    'plugin:@typescript-eslint/recommended',
+    'next/typescript',
+    // 'plugin:@typescript-eslint/recommended',
   ],
   parserOptions: {
     ecmaVersion: 'latest', // ใช้ ECMAScript รุ่นล่าสุด
