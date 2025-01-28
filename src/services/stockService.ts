@@ -1,4 +1,4 @@
-import { StockAnalysis, ApiResponse } from '@/types';
+import { StockAnalysis, ApiResponse } from '../types';
 
 export class StockService {
   private static BASE_URL = '/api';
