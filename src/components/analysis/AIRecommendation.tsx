@@ -12,6 +12,7 @@ interface AIAnalysisProps {
     stopLoss: number;
     reasoning: string;
     risks: string[];
+    catalysts?: string[];
   };
 }
 
