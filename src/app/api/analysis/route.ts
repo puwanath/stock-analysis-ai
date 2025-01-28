@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import Together from 'together-ai';
 
 const MAX_RETRIES = 3;
-const TIMEOUT = 60000; // 60 seconds
+// const TIMEOUT = 60000; // 60 seconds
 
 async function makeAIRequest(together: Together, prompt: string, retryCount = 0): Promise<any> {
   try {
