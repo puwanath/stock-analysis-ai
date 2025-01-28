@@ -16,6 +16,10 @@ const eslintConfig = /** @type {Linter.Config} */ ({
     'next/core-web-vitals',
     'plugin:@typescript-eslint/recommended',
   ],
+  parserOptions: {
+    ecmaVersion: 'latest', // ใช้ ECMAScript รุ่นล่าสุด
+    sourceType: 'module',
+  },
   rules: {
     '@typescript-eslint/no-explicit-any': 'off', // ปิดการแจ้งเตือน error ของ any
   },

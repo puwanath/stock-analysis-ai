@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import { YahooFinanceService } from '../services/yahooFinance';
-import { TechnicalAnalysisService } from '../services/technicalAnalysis';
+import { YahooFinanceService } from '@/services/yahooFinance';
+import { TechnicalAnalysisService } from '@/services/technicalAnalysis';
 
 export class StockController {
   private yahooFinance: YahooFinanceService;
