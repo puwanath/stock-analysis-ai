@@ -14,7 +14,7 @@ import { Search } from 'lucide-react';
 
 export default function StockAnalyzer() {
   const [symbol, setSymbol] = useState('');
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<{ basicInfo: any; historical: any; technical: any; aiAnalysis: any } | null>(null);
   const [aiAnalysis, setAiAnalysis] = useState(null);
   const [loading, setLoading] = useState(false);
   const [retryCount, setRetryCount] = useState(0);
@@ -105,6 +105,7 @@ export default function StockAnalyzer() {
 
       } catch (error) {
         if (retryCount < maxRetries && 
+            error instanceof Error && 
             (error.message.includes('timed out') || error.message.includes('failed to generate'))) {
           setRetryCount(prev => prev + 1);
           await new Promise(resolve => setTimeout(resolve, 1000 * (retryCount + 1)));
