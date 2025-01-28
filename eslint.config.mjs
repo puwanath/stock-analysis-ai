@@ -11,7 +11,7 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = /** @type {Linter.Config} */ ({
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  // ...compat.extends("next/core-web-vitals", "next/typescript"),
   extends: [
     'next/core-web-vitals',
     'plugin:@typescript-eslint/recommended',
@@ -22,6 +22,7 @@ const eslintConfig = /** @type {Linter.Config} */ ({
   },
   rules: {
     '@typescript-eslint/no-explicit-any': 'off', // ปิดการแจ้งเตือน error ของ any
+    'react/react-in-jsx-scope': 'off', // ตัวอย่างกฎอื่นสำหรับ Next.js
   },
 })
 
