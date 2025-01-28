@@ -41,7 +41,7 @@ export const TechnicalIndicators: React.FC<TechnicalIndicatorsProps> = ({ data }
   };
 
   const getSignalStrength = () => {
-    let signals = [];
+    const signals = [];
     // RSI Signals
     if (data.rsi > 70) signals.push({ type: 'SELL', reason: 'Overbought (RSI > 70)', strength: 'Strong' });
     else if (data.rsi < 30) signals.push({ type: 'BUY', reason: 'Oversold (RSI < 30)', strength: 'Strong' });
