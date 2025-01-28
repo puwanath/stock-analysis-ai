@@ -1,41 +1,164 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Stock Analysis with AI Assistant (DeepSeek R1, Llama3.3 70B instruction)
 
-## Getting Started
+## Overview
+This is a stock analysis web application that combines technical analysis with AI-powered insights using DeepSeek R1. It provides real-time stock data analysis, technical indicators, and AI-driven trading recommendations.
 
-First, run the development server:
+## Features
+- Real-time stock data from Yahoo Finance
+- Technical Analysis:
+  - RSI (Relative Strength Index)
+  - MACD (Moving Average Convergence Divergence)
+  - Moving Averages (SMA 20, 50, 200)
+  - Support and Resistance levels
+  - Volume Analysis
+- Interactive Charts:
+  - Candlestick charts with multiple timeframes
+  - Volume visualization
+- AI Analysis:
+  - Trading recommendations (Buy/Sell/Hold)
+  - Price targets and stop-loss levels
+  - Risk analysis
+  - Potential catalysts
 
+## Tech Stack
+- **Frontend**: Next.js, React, TypeScript
+- **Styling**: Tailwind CSS, shadcn/ui
+- **Charts**: TradingView Lightweight Charts
+- **Data**: Yahoo Finance API
+- **AI**: Together AI (DeepSeek R1, Llama3.3 70B instruction model)
+
+## Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone [https://github.com/puwanath/stock-analysis-ai.git]
+cd stock-analysis
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Set up environment variables:
+Create a `.env.local` file in the root directory:
+```env
+TOGETHER_API_KEY=your_together_ai_api_key
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Run the development server:
+```bash
+npm run dev
+```
 
-## Learn More
+## Project Structure
+```
+src/
+├── app/                    # Next.js app directory
+│   ├── api/               # API routes
+│   │   ├── stock/         # Stock data API
+│   │   └── analysis/      # AI analysis API
+│   └── page.tsx           # Main page
+├── components/            # React components
+│   ├── ui/               # UI components
+│   ├── charts/           # Chart components
+│   └── analysis/         # Analysis components
+├── services/             # Service layer
+│   ├── stockService.ts
+│   ├── yahooFinance.ts
+│   └── technicalAnalysis.ts
+└── types/                # TypeScript types
+    └── index.ts
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Enter a stock symbol (e.g., AAPL, GOOGL)
+2. View technical analysis including:
+   - Current price and changes
+   - Technical indicators
+   - Support and resistance levels
+3. Analyze price action using interactive charts
+4. Get AI-powered recommendations and insights
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## API Reference
 
-## Deploy on Vercel
+### Stock Data API
+```typescript
+GET /api/stock?symbol=AAPL
+```
+Returns stock data including:
+- Basic information
+- Technical indicators
+- Historical data
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### AI Analysis API
+```typescript
+POST /api/analysis
+Body: {
+  symbol: string,
+  stockData: StockAnalysis
+}
+```
+Returns AI analysis including:
+- Trading recommendation
+- Price targets
+- Risk assessment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# stock-analysis-ai
-AI-Powered Stock Analysis
->>>>>>> 30cbc3bc058d7adc0fbe4ee2430c618d8205d7b8
+## Contributing
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## Dependencies
+
+### Main Dependencies
+```json
+{
+  "next": "13.x",
+  "react": "18.x",
+  "typescript": "5.x",
+  "tailwindcss": "3.x",
+  "together-ai": "latest",
+  "yahoo-finance2": "latest"
+}
+```
+
+### Development Dependencies
+```json
+{
+  "@types/react": "18.x",
+  "@types/node": "18.x",
+  "eslint": "8.x",
+  "typescript": "5.x"
+}
+```
+
+## Environment Variables
+| Variable | Description |
+|----------|-------------|
+| `TOGETHER_API_KEY` | API key for Together AI |
+
+## License
+MIT License
+
+## Support
+For support, reach out:
+- Open an issue
+- Submit a pull request
+- Contact the maintainers
+
+## Future Updates
+- [ ] Add more technical indicators
+- [ ] Implement alerts system
+- [ ] Add portfolio tracking
+- [ ] Enhance AI analysis with sentiment data
+- [ ] Add backtesting capabilities
+
+## Acknowledgements
+- [Together AI](https://together.ai) for DeepSeek R1 model
+- [Yahoo Finance](https://finance.yahoo.com) for market data
+- [shadcn/ui](https://ui.shadcn.com) for UI components
+- [TradingView](https://tradingview.com) for charting library
